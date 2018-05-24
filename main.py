@@ -63,12 +63,17 @@ if(__name__=="__main__"):
 	
 	TestBed.dfft_button = ttk.Button(text="Calcular DFFT",
 											  command = TestBed.onClick,
-											  width = 0.2*TestBed.FRAME_WIDTH);
+											  width = 0.4*TestBed.FRAME_WIDTH);
+	
+	TestBed.image_button = ttk.Button(text="Escoger imagen",
+												command=TestBed.onChangeImage,
+												width=0.4*TestBed.FRAME_WIDTH);
 	
 	TestBed.image_label.place(relx=0,rely=0.1);
 	TestBed.canvas.get_tk_widget().place(relx=0.5,rely=0);
 	scale.place(rely=0.075, relx=0.05);
-	TestBed.dfft_button.place(rely=0.85, relx=0.2);
+	TestBed.dfft_button.place(rely=0.85, relx=0.225);
+	TestBed.image_button.place(rely=0.15, relx=0.225);
 	
 	
 	

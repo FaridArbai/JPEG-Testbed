@@ -8,6 +8,7 @@ import tkinter.filedialog
 from PIL import ImageTk
 from PIL import Image
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from tkinter import filedialog
 
 class TestBed:
 	FILE_TYPES = (("", ".jpg"), ("", ".jpeg"), ("", ".bmp"), ("", ".png"));
@@ -18,6 +19,7 @@ class TestBed:
 	orig = [];
 	scale_var = 0;
 	dfft_button = [];
+	image_button = [];
 	
 	ROOT_HEIGHT = int(1080*0.9);
 	ROOT_WIDTH = int(1920*0.9);
@@ -205,4 +207,48 @@ class TestBed:
 		TestBed.fft_figure.imshow(magnitud);
 		TestBed.fft_figure.set_title("DFFT para Q=%.2f"%(q));
 		TestBed.canvas.show();
+		
+	
+	@staticmethod
+	def onChangeImage():
+		print("Clicked");
+		
+		image_path = filedialog.askopenfilename();
+		
+		TestBed.init(image_path);
+		
+		image = TestBed.image;
+		
+		img_tk = TestBed.imageToTkinter(image);
+		
+		TestBed.image_label.configure(image=img_tk);
+		TestBed.image_label.image = img_tk;
+		
+		TestBed.graph_figure.clear();
+		TestBed.initGraphs();
+		
+		q = TestBed.scale_var.get();
+		
+		TestBed.plotQuantizationMatrix(q);
+		TestBed.onSliderChanged(q);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
