@@ -21,6 +21,9 @@ class TestBed:
 	dfft_button = [];
 	image_button = [];
 	
+	#TODO: Adjust height and width so that it scales
+	#to the available window size
+	
 	ROOT_HEIGHT = int(1080*0.9);
 	ROOT_WIDTH = int(1920*0.9);
 	
@@ -231,6 +234,17 @@ class TestBed:
 		
 		TestBed.plotQuantizationMatrix(q);
 		TestBed.onSliderChanged(q);
+	
+	
+	#TODO: Complete this function so that it
+	#scales automatically
+	@staticmethod
+	def onSizeChanged(event):
+		new_width = event.width;
+		new_height = event.height;
+		
+		# Resize image and graphs
+		# Resize current window
 	
 	
 	
